@@ -20,7 +20,7 @@ Route::middleware(['auth', 'verified', 'role:admin'])->prefix('admin')->name('ad
         ->name('emails.create');
     Route::post('/emails', [EmailController::class, 'store'])->name('emails.store');
 
-    Route::get('/email-logs', [EmailLogController::class, 'show'])
+    Route::get('/email-logs', [\App\Http\Controllers\Admin\EmailLogController::class, 'show'])
         ->name('email-logs.show');
 });
 
